@@ -1,0 +1,33 @@
+{
+    "name": "jaopmx/faq-package",
+    "description": "Simple FAQ package including tables, controllers, models and basic views",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Antonio Oropeza",
+            "email": "jaop.7@outlook.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench-browser-kit": "^4.0",
+        "laravel/browser-kit-testing": "^5.1"
+    },
+    "autoload": {
+   		"psr-4": {
+    		"JaopMX\\FaqPackage\\": "src/"
+   		}
+ 	},
+ 	"autoload-dev": {
+   		"psr-4": {
+    		"JaopMX\\FaqPackage\\Tests\\": "tests/"
+   		}
+ 	},
+ 	"extra": {
+	    "laravel": {
+	        "providers": [
+	            "JaopMX\\FaqPackage\\FaqServiceProvider"
+	        ]
+	    }
+	}
+}
