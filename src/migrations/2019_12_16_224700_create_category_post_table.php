@@ -16,9 +16,7 @@ class CreateCategoryPostTable extends Migration
         Schema::create('faq_category_post', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('post_id')->unsigned();
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamps();
         });
     }
