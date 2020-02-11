@@ -22,6 +22,7 @@ class FaqServiceProvider extends ServiceProvider
 		Route::group([
 			'prefix' => 'faq-package',
 			'namespace' => 'JaopMX\FaqPackage\Controllers',
+			'middleware' => 'auth'
 		], function () {
 			$this->loadRoutesFrom(__DIR__ . '/routes.php');
 		});

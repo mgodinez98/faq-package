@@ -1,6 +1,7 @@
 <?php
 
 use JaopMX\FaqPackage\Models\Category;
+use JaopMX\FaqPackage\Tests\User;
 use JaopMX\FaqPackage\Tests\TestCase;
 
 class CategoryTest extends TestCase
@@ -11,7 +12,10 @@ class CategoryTest extends TestCase
 	*/
 	public function it_test_that_i_can_create_a_category()
 	{
-		$this->visit('faq-package/categories')
+        $user = factory(User::class)->create();
+
+		$this->actingAs($user)
+            ->visit('faq-package/categories')
 			->click('#add-collection')
 			->see('Nueva categoría')
 			->type('TestCategory', '#name')
@@ -29,9 +33,11 @@ class CategoryTest extends TestCase
      */
     public function it_tests_i_can_edit_a_category()
     {
+        $user = factory(User::class)->create();
         $category = factory(Category::class)->create();
 
-        $this->visit('faq-package/categories')
+        $this->actingAs($user)
+            ->visit('faq-package/categories')
             ->click('#edit-category-'.$category->id)
             ->see('Editando categoría')
             ->type($category->id, '#category_id')
