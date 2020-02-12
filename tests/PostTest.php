@@ -19,7 +19,7 @@ class PostTest extends TestCase
         $user = factory(User::class)->create();
         
         $this->actingAs($user)
-            ->visit('faq-package/posts/create')
+            ->visit('faq/posts/create')
             ->see('Creando post')
             ->type('Testing post', 'title')
             ->select($category->id, 'category')
@@ -47,7 +47,7 @@ class PostTest extends TestCase
         $post = $this->createPost($user, $category->id);
 
         $this->actingAs($user)
-            ->visit('faq-package/posts/edit/'.$post->id)
+            ->visit('faq/posts/edit/'.$post->id)
             ->see('Editando post')
             ->type('Nuevo titulo', 'title')
             ->select($category2->id, 'category')
@@ -74,7 +74,7 @@ class PostTest extends TestCase
         $post = $this->createPost($user, $category->id);
 
         $this->actingAs($user)
-            ->visit('faq-package/posts')
+            ->visit('faq/posts')
             ->see($post->title)
             ->click('deactivate-post-'.$post->id);
             

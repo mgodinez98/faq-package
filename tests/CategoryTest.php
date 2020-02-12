@@ -15,7 +15,7 @@ class CategoryTest extends TestCase
         $user = factory(User::class)->create();
 
 		$this->actingAs($user)
-            ->visit('faq-package/categories')
+            ->visit('faq/categories')
 			->click('#add-collection')
 			->see('Nueva categoría')
 			->type('TestCategory', '#name')
@@ -37,7 +37,7 @@ class CategoryTest extends TestCase
         $category = factory(Category::class)->create();
 
         $this->actingAs($user)
-            ->visit('faq-package/categories')
+            ->visit('faq/categories')
             ->click('#edit-category-'.$category->id)
             ->see('Editando categoría')
             ->type($category->id, '#category_id')
