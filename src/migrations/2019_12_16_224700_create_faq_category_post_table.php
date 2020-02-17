@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryPostTable extends Migration
+class CreateFaqCategoryPostTable extends Migration
 {
     /**
      * Run the migrations.

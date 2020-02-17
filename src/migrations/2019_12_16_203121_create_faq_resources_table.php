@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqPackageCategoriesTable extends Migration
+class CreateFaqResourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFaqPackageCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq_categories', function (Blueprint $table) {
+        Schema::create('faq_resources', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug');
-            $table->string('description');
+            $table->string('mime_type');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateFaqPackageCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_categories');
+        Schema::dropIfExists('faq_resources');
     }
 }

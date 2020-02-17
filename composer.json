@@ -8,7 +8,9 @@
             "email": "jaop.7@outlook.com"
         }
     ],
-    "require": {},
+    "require": {
+        "laravel/scout": "^7.2"
+    },
     "require-dev": {
         "orchestra/testbench-browser-kit": "^4.0",
         "laravel/browser-kit-testing": "^5.1"
@@ -21,7 +23,8 @@
  	"autoload-dev": {
    		"psr-4": {
     		"JaopMX\\FaqPackage\\Tests\\": "tests/"
-   		}
+   		},
+		"files": ["src/helpers.php"]
  	},
  	"extra": {
 	    "laravel": {
