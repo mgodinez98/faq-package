@@ -20,8 +20,12 @@ class PostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = $user->posts()->with('author')->get();
-        return view('FaqPackage::index', compact('posts'));
+        if ($user) {            
+            $posts = $user->posts()->with('author')->get();
+            return view('FaqPackage::index', compact('posts'));
+        }else{
+            return redirect()->back()->withErrors('You are not logged in!');
+        }
     }
 
     /**
@@ -45,15 +49,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        $data = $request->all();
-        $data['active'] = 1;
-        if ($user){
-            $data['slug'] = Str::slug($data['title']);
-            $post = $user->posts()->create($data);
-            $post->categories()->attach($request->get('category'));
-            return redirect()->route('dashboard')->withSuccess('¡Artículo creado exitosamente!');
+        if($user){
+            $data = $request->all();
+            $data['active'] = 1;
+            if ($user){
+                $data['slug'] = Str::slug($data['title']);
+                $post = $user->posts()->create($data);
+                $post->categories()->attach($request->get('category'));
+                return redirect()->route('dashboard')->withSuccess('¡Artículo creado exitosamente!');
+            }
+            return redirect()->route('dashboard')->with('error','Ha ocurrido un error al crear el artículo');
+        }else{
+            return redirect()->back()->withErrors('You are not logged in!');
         }
-        return redirect()->route('dashboard')->with('error','Ha ocurrido un error al crear el artículo');
     }
 
     /**
