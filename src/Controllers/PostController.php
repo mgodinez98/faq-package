@@ -20,12 +20,12 @@ class PostController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if ($user) {            
+        // if ($user) {            
             $posts = $user->posts()->with('author')->get();
             return view('FaqPackage::index', compact('posts'));
-        }else{
-            return redirect()->back()->withErrors('You are not logged in!');
-        }
+        // }else{
+        //     return redirect()->back()->withErrors('You are not logged in!');
+        // }
     }
 
     /**
