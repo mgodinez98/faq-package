@@ -17,15 +17,15 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = Auth::user();
-        // if ($user) {            
+        $user = $request->user();
+        if ($user) {            
             $posts = $user->posts()->with('author')->get();
             return view('FaqPackage::index', compact('posts'));
-        // }else{
-        //     return redirect()->back()->withErrors('You are not logged in!');
-        // }
+        }else{
+            return redirect()->back()->withErrors('You are not logged in!');
+        }
     }
 
     /**
