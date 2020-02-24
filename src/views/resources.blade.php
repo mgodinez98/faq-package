@@ -19,7 +19,7 @@
                 <div class="col s12 m4">
                     <div class="card small">
                         <div class="card-image">
-                            <img id="resource-{{ $resource->id }}" src="{{ storage_url('resources/'.$resource->name) }}">
+                            <img id="resource-{{ $resource->id }}" src="{{ faq_storage_url('resources/'.$resource->name) }}">
                         </div>
                         <div class="card-content">
                             <span class="card-title">{{ $resource->name }}</span>
