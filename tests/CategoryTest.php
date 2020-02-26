@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use JaopMX\FaqPackage\Models\Category;
 use JaopMX\FaqPackage\Tests\User;
 use JaopMX\FaqPackage\Tests\TestCase;
 
 class CategoryTest extends TestCase
 {
+    use WithoutMiddleware;
 
 	/**
 	* @test

@@ -5,10 +5,11 @@ use JaopMX\FaqPackage\Models\Post;
 use JaopMX\FaqPackage\Tests\User;
 use JaopMX\FaqPackage\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class PostTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithoutMiddleware;
 
 	/**
      * @test
