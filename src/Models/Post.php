@@ -15,6 +15,11 @@ class Post extends Model
     protected $table = 'faq_posts';
     protected $fillable = ['title', 'body', 'active', 'slug'];
 
+    public function searchableAs()
+    {
+        return config('faq.posts_index', 'faq_posts');
+    }
+
     /**
      * Only models with this conditions are indexed
      *
