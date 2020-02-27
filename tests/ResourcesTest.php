@@ -25,19 +25,19 @@ class ResourcesTest extends TestCase
             ->see($resource->name);
     }
 
-    // /**
-    //  * @test
-    //  */
-    // public function it_tests_i_can_upload_a_resource()
-    // {
-    //     Storage::fake('public');
+     /**
+      * @test
+      */
+     public function it_tests_i_can_upload_a_resource()
+     {
+         Storage::fake('public');
 
-    //     $user = factory(User::class)->create();
+         $user = factory(User::class)->create();
 
-    //     $response = $this->json('POST', 'faq/resources/upload', [
-    //        'resource' => UploadedFile::fake()->image('resource.jpg')
-    //     ]);
+         $response = $this->json('POST', 'faq/resources/upload', [
+            'resource' => UploadedFile::fake()->image('resource.jpg')
+         ]);
 
-    //     Storage::disk('public')->assertExists('resource.jpg');
-    // }
+         Storage::assertExists('resources/resource.jpg');
+     }
 }
