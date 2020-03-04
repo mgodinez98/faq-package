@@ -16,9 +16,6 @@
             <div class="container" style="width: 80%;">
                 <div class="row">
                     <h3>{{ $post->title }}</h3>
-                    <div class="chip">
-                        {{ $post->author->full_name }}
-                    </div>
                 </div>
                 <div class="row">
                     {!! $post->body !!}

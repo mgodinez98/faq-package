@@ -45,11 +45,6 @@
                                                 <li>
                                                     <p class="post-title">{{ $post->title }}</p>
                                                 </li>
-                                                <li>
-                                                    <div class="chip">
-                                                        {{ $post->author->full_name }}
-                                                    </div>
-                                                </li>
                                             </ul>
                                         </a>
                                     </td>
