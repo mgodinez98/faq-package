@@ -106,4 +106,11 @@ class PostController extends Controller
             return redirect()->route('dashboard')->with('error', 'Ha ocurrido un error al modificar el post');
         }
     }
+
+    public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        return view()->first(['faq.post-show', 'FaqPackage::post-show'])->with('post', $post);
+    }
 }

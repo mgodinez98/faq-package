@@ -14,4 +14,14 @@ class Category extends Model
     {
         return $this->belongsToMany(Post::class, 'faq_category_post');
     }
+
+    public function getActivePostsAttribute()
+    {
+	    return $this->posts()->where('active', 1)->count();
+    }
+
+    public function getTotalPostAttribute()
+    {
+        return $this->posts()->count();
+    }
 }

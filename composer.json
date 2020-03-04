@@ -25,7 +25,7 @@
    		"psr-4": {
     		"JaopMX\\FaqPackage\\Tests\\": "tests/"
    		},
-		"files": ["src/helpers.php"]
+		"files": ["src/helpers.php", "tests/Helpers.php"]
  	},
  	"extra": {
 	    "laravel": {

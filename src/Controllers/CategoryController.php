@@ -10,6 +10,12 @@ use Illuminate\Routing\Controller;
 
 class CategoryController extends Controller
 {
+    public function all()
+    {
+        $categories = Category::all();
+        return view()->first(['faq.categories-all', 'FaqPackage::categories-all'])->with('categories', $categories);
+    }
+
     public function index()
     {
         $categories = Category::all();
@@ -60,5 +66,14 @@ class CategoryController extends Controller
         }else{
             return redirect()->route('categories.index')->with('error', 'No se ha podido actualizar la categoría');
         }
+    }
+
+    public function show($slug)
+    {
+        $category = Category::with(['posts' => function ($query) {
+            $query->where('active', 1);
+        }])->where('slug', $slug)->first();
+
+        return view()->first(['faq.category-show', 'FaqPackage::category-show'])->with('category', $category);;
     }
 }

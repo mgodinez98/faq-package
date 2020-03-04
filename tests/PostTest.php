@@ -45,7 +45,7 @@ class PostTest extends TestCase
         $user = factory(User::class)->create();
         $category = factory(Category::class)->create();
         $category2 = factory(Category::class)->create();
-        $post = $this->createPost($user, $category->id);
+        $post = createPost($user, $category->id);
 
         $this->actingAs($user)
             ->visit('faq/posts/edit/'.$post->id)
@@ -72,7 +72,7 @@ class PostTest extends TestCase
     {
         $user = factory(User::class)->create();
         $category = factory(Category::class)->create();
-        $post = $this->createPost($user, $category->id);
+        $post = createPost($user, $category->id);
 
         $this->actingAs($user)
             ->visit('faq/posts')
@@ -83,20 +83,5 @@ class PostTest extends TestCase
             'id' => $post->id,
             'active' => 0
         ]);
-    }
-
-    private function createPost($user, $category_id)
-    {
-        $data = [];
-        $data['title'] = 'Titulo fake';
-        $data['slug'] = Str::slug($data['title']);
-        $data['active'] = 1;
-        $data['body'] = 'Body fake';
-        $data['category'] = $category_id;
-
-        $post = $user->posts()->create($data);
-        $post->categories()->attach($data['category']);
-
-        return $post;
     }
 }
