@@ -10,7 +10,7 @@
     </style>
 @endsection
 @section('content')
-{{--    @include('components.search-bar')--}}
+    @include('FaqPackage::components.search-bar')
     <div class="container" style="width: 60%;">
         <div class="row">
             <div class="col s12">

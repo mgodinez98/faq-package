@@ -84,4 +84,19 @@ class PostTest extends TestCase
             'active' => 0
         ]);
     }
+
+    /**
+     * @test
+     */
+    public function it_tests_i_can_make_a_search()
+    {
+        $category = factory(Category::class)->create();
+        $post = factory(Post::class)->create();
+
+        $this->visit('faq/')
+            ->type('Busqueda chida', 'q');
+
+        $response = $this->GET('faq/search?q=ostias')
+            ->assertResponseOk();
+    }
 }
