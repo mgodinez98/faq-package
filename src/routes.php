@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'CategoryController@all')->name('categories.all');
-
+Route::get('/search', 'PostController@search')->name('posts.search');
 Route::group(['prefix' => 'posts'], function(){
 	Route::get('/', 'PostController@index')->name('dashboard');
     Route::get('/create', 'PostController@create')->name('posts.create');

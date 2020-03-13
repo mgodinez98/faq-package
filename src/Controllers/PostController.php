@@ -113,4 +113,17 @@ class PostController extends Controller
 
         return view()->first(['faq.post-show', 'FaqPackage::post-show'])->with('post', $post);
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('q', '');
+        $algolia_id = config('scout.algolia.id');
+        $algolia_search = config('scout.algolia.search');
+        
+        return view()->first(['faq.post-search', 'FaqPackage::post-search'], array(
+            'query' => $query,
+            'algolia_id' => $algolia_id,
+            'algolia_search' => $algolia_search
+        ));
+    }
 }
