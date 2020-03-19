@@ -17,8 +17,7 @@
         </posts>
     </div>
 @section('body-scripts')
-{{--    <script src="{{ mix('js/app.js') }}"></script>--}}
-    <script src="{{ mix('vendor/jaopmx/faq-package/public/js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js', 'vendor/faq-package') }}"></script>
 @endsection
 @section('body-styles')
     @parent

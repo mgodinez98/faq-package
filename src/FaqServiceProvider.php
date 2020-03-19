@@ -17,6 +17,10 @@ class FaqServiceProvider extends ServiceProvider
 		], 'faq_config');
 
 		$this->publishes([
+			__DIR__.'/../public' => public_path('vendor/faq-package')
+		], 'faq_assets');
+
+		$this->publishes([
 			__DIR__.'/migrations/' => database_path('migrations')
 		], 'faq_migrations');
 	}
