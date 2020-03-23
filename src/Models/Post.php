@@ -36,7 +36,7 @@ class Post extends Model
      */
     public function toSearchableArray()
     {
-        $array['user_id'] = $this->user_id;
+        $array['user_id'] = $this->author_id;
         $array['author'] = $this->author->full_name;
         $array['title'] = $this->title;
         $array['body'] = $this->clear_body;
