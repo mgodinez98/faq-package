@@ -48,7 +48,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
         if($user){
             $data = $request->all();
             $data['active'] = 1;
