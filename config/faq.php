@@ -4,14 +4,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Horizon Domain
+    | Faq Posts Index
     |--------------------------------------------------------------------------
     |
-    | This is the subdomain where Horizon will be accessible from. If this
-    | setting is null, Horizon will reside under the same domain as the
-    | application. Otherwise, this value will serve as the subdomain.
+    | This is the index where your faq posts will be indexed, yo can use it
+    | to replace the default index scout will be looking for.
     |
     */
 
     'posts_index' => 'faq_posts',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Faq Admin Section Middleware
+    |--------------------------------------------------------------------------
+    |
+    | This is the index where your faq posts will be indexed, yo can use it
+    | to replace the default index scout will be looking for.
+    |
+    */
+
+    'admin_middleware' => '',
 ];
