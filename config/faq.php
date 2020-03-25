@@ -24,5 +24,5 @@ return [
     |
     */
 
-    'admin_middleware' => '',
+    'admin_middleware' => 'web',
 ];
