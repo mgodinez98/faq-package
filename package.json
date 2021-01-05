@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/JaopMX/faq-package#readme",
   "devDependencies": {
-    "axios": "^0.19",
+    "axios": "^0.21",
     "bootstrap": "^4.0.0",
     "cross-env": "^5.1",
     "jquery": "^3.2",
